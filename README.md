@@ -1,29 +1,38 @@
-# EDtunnel
+#白奶酪
 
-<p align="center">
-  <img src="https://cloudflare-ipfs.com/ipfs/bafybeigd6i5aavwpr6wvnwuyayklq3omonggta4x2q7kpmgafj357nkcky" alt="图片描述" style="margin-bottom: -50px;">
-</p>
+1.原作者ED哥：GitHub Repository for https://github.com/zizifn/edgetunnel
 
-GitHub Repository for [https://github.com/zizifn/edgetunnel](https://github.com/zizifn/edgetunnel)
+2.当路径字符串为myIP时，出站IP和你自己选择的CF入站IP一致
 
-[![Repository](https://img.shields.io/badge/View%20on-GitHub-blue.svg)](https://github.com/zizifn/edgetunnel)
+3.当路径字符串为proxyIP=时，如proxyIP=11.11.11.11，你只出站IP为11.11.11.11。（proxyIP必须是CF的反代IP）
 
-## Deploy in pages.dev
-
-1. See YouTube Video:
-
-   [https://www.youtube.com/watch?v=8I-yTNHB0aw](https://www.youtube.com/watch?v=8I-yTNHB0aw)
-
-2. Clone this repository deploy in cloudflare pages.
-
-## Deploy in worker.dev
-
-1. Copy `_worker.js` code from [here](https://github.com/3Kmfi6HP/EDtunnel/blob/main/_worker.js).
-
-2. Alternatively, you can click the button below to deploy directly.
-
-   [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/3Kmfi6HP/EDtunnel)
-
-## Lazy to deploy
-
-`aHR0cHM6Ly9vc3MudjJyYXlzZS5jb20vcHJveGllcy9kYXRhLzIwMjMtMDYtMjAvZFFOQTk3LnlhbWw=` (clash config)
+#模板
+     
+    type: vless
+     
+    name: www.123.com
+   
+    server: 12.34.56.78
+    
+    port: 443
+    
+    uuid: YouUserId
+    
+    network: ws
+    
+    tls: true 
+    
+    udp: false
+    
+    sni: www.123.com
+    
+    client-fingerprint: chrome
+    
+    ws-opts:
+  
+    path: "/proxyIP=11.11.11.11"
+    
+    headers:
+    
+    host: www.123.com
+    
