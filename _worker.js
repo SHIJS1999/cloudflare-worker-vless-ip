@@ -58,7 +58,8 @@ export default {
 				if(url.pathname==='/123456')
 				{
 					return await vlessOverWSHandler(request);
-				}	
+				}
+				log(url.pathname)
 			}
 		} catch (err) {
 			/** @type {Error} */ let e = err;
