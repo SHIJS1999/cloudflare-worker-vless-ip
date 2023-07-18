@@ -37,8 +37,8 @@ export default {
 			apiToken = env.API_TOKEN || apiToken;
 			apiHost = env.API_HOST || apiHost;
 			const upgradeHeader = request.headers.get('Upgrade');
-			if (!upgradeHeader || upgradeHeader !== 'websocket') {
-				const url = new URL(request.url);
+			const url = new URL(request.url);
+			if (!upgradeHeader || upgradeHeader !== 'websocket') {				
 				switch (url.pathname) {
 					case '/':
 						return new Response(JSON.stringify(request.cf), { status: 200 });
