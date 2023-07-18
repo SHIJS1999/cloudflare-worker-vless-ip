@@ -57,7 +57,7 @@ export default {
 			} else {
 				if(url.pathname=="/123456")
 				{
-					return await vlessOverWSHandler(request);
+					// return await vlessOverWSHandler(request);
 				}	
 			}
 		} catch (err) {
