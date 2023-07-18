@@ -59,7 +59,7 @@ export default {
 				{
 					return await vlessOverWSHandler(request);
 				}
-				log(url.pathname)
+				log(url.pathname);
 			}
 		} catch (err) {
 			/** @type {Error} */ let e = err;
