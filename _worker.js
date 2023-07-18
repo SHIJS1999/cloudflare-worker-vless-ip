@@ -55,11 +55,20 @@ export default {
 						return new Response('Not found', { status: 404 });
 				}
 			} else {
-				if(url.pathname==='/123456')
+				if(url.pathname.includes('/proxyIP='))
 				{
-					return await vlessOverWSHandler(request);
+					const tmp_ip=url.pathname.split("=")[1];
+					if(isValidIP(tmp_ip))
+					{
+						proxyIP=tmp_ip;
+					}
+					
 				}
-				log(url.pathname);
+				else if(url.pathname.includes('/myIP'))
+				{
+					proxyIP=request.headers.get('x-real-ip');
+				}
+				return await vlessOverWSHandler(request);
 			}
 		} catch (err) {
 			/** @type {Error} */ let e = err;
@@ -68,7 +77,10 @@ export default {
 	},
 };
 
-
+function isValidIP(ip) {
+    var reg = /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/
+    return reg.test(ip);
+}
 
 
 /**
