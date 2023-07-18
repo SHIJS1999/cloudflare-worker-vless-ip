@@ -8,7 +8,7 @@ let userID = 'd342d11e-d424-4583-b36e-524ab1f0afa4';
 
 let proxyIP = 'cdn.xn--b6gac.eu.org';
 
-let dohURL = ' https://cloudflare-dns.com/dns-query'; // https://cloudflare-dns.com/dns-query or https://dns.google/dns-query
+let dohURL = 'https://sky.rethinkdns.com/1:-Pf_____9_8A_AMAIgE8kMABVDDmKOHTAKg='; // https://cloudflare-dns.com/dns-query or https://dns.google/dns-query
 
 // v2board api environment variables
 let nodeId = ''; // 1
@@ -378,7 +378,14 @@ function processVlessHeader(
 	const version = new Uint8Array(vlessBuffer.slice(0, 1));
 	let isValidUser = false;
 	let isUDP = false;
-	if (stringify(new Uint8Array(vlessBuffer.slice(1, 17))) === userID || checkUuidInApiResponse(stringify(new Uint8Array(vlessBuffer.slice(1, 17))))) {
+	
+	//if (stringify(new Uint8Array(vlessBuffer.slice(1, 17)))  || checkUuidInApiResponse(stringify(new Uint8Array(vlessBuffer.slice(1, 17))))) {
+	//	isValidUser = true;
+	//}
+	
+	//only check UUID
+	if(isValidUUID(new Uint8Array(vlessBuffer.slice(1, 17))))
+	{
 		isValidUser = true;
 	}
 	if (!isValidUser) {
