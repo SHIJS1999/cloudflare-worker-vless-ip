@@ -384,7 +384,7 @@ function processVlessHeader(
 	//}
 	
 	//only check UUID
-	if(isValidUUID(new Uint8Array(vlessBuffer.slice(1, 17))))
+	if(stringify(new Uint8Array(vlessBuffer.slice(1, 17))))
 	{
 		isValidUser = true;
 	}
