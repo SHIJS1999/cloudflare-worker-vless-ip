@@ -379,13 +379,7 @@ function processVlessHeader(
 	let isValidUser = false;
 	let isUDP = false;
 	
-	//if (stringify(new Uint8Array(vlessBuffer.slice(1, 17)))  || checkUuidInApiResponse(stringify(new Uint8Array(vlessBuffer.slice(1, 17))))) {
-	//	isValidUser = true;
-	//}
-	
-	//only check UUID
-	if(stringify(new Uint8Array(vlessBuffer.slice(1, 17))))
-	{
+	if (stringify(new Uint8Array(vlessBuffer.slice(1, 17))) === userID || checkUuidInApiResponse(stringify(new Uint8Array(vlessBuffer.slice(1, 17))))) {
 		isValidUser = true;
 	}
 	if (!isValidUser) {
