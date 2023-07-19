@@ -6,7 +6,7 @@
 
 2.当路径字符串为myIP时，出站IP和你自己选择的CF入站IP一致
 
-3.当路径字符串为proxyIP=时，如proxyIP=11.11.11.11，你只出站IP为11.11.11.11。（proxyIP必须是CF的反代IP）
+3.当路径字符串为proxyIP=时，如proxyIP=11.11.11.11，你的出站IP为11.11.11.11。（proxyIP必须是CF的反代IP）
 
 #模板
      
